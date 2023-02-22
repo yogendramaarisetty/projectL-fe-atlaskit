@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AtlassianIcon, AtlassianLogo, LogoProps } from '@atlaskit/logo';
+import { AtlassianIcon, AtlassianLogo } from '@atlaskit/logo';
 
 import {
   AtlassianNavigation,
@@ -9,21 +9,21 @@ import {
   ProductHome,
 } from '@atlaskit/atlassian-navigation';
 
+const AtlassianProductHome = () => (
+  <ProductHome icon={AtlassianIcon} logo={AtlassianLogo} />
+);
 
-import CondingTestLogo from '../assets/CodingTest.svg';
-const AtlassianProductHome = () => <img src={CondingTestLogo} />;
-
-const TopNavBar = () => (
+const DefaultExample = () => (
   <AtlassianNavigation
     label="site"
     primaryItems={[
-      <PrimaryButton>Problems</PrimaryButton>,
-      <PrimaryDropdownButton>Tests</PrimaryDropdownButton>,
-      <PrimaryDropdownButton>Results</PrimaryDropdownButton>,
-      <PrimaryButton>Candidates</PrimaryButton>,
+      <PrimaryButton>Your work</PrimaryButton>,
+      <PrimaryDropdownButton>Issues</PrimaryDropdownButton>,
+      <PrimaryDropdownButton>Projects</PrimaryDropdownButton>,
+      <PrimaryButton>Repositories</PrimaryButton>,
     ]}
     renderProductHome={AtlassianProductHome}
   />
 );
 
-export default TopNavBar;
+export default DefaultExample;

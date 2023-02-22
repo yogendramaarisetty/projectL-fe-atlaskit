@@ -7,6 +7,7 @@ import { token } from '@atlaskit/tokens';
 import TopNavBar from './navigation/TopNavigation';
 
 import './App.css';
+import '@atlaskit/css-reset';
 
 import {
   Banner,
