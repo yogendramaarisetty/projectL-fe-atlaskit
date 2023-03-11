@@ -2,9 +2,14 @@ import { token } from '@atlaskit/tokens';
 import TopNavBar from './navigation/TopNavigation';
 
 import { useState } from 'react';
-
+import {
+    AtlassianNavigation,
+    PrimaryButton,
+    PrimaryDropdownButton,
+    ProductHome,
+  } from '@atlaskit/atlassian-navigation';
+  import  ThemeProvider  from '@atlaskit/theme';
 import MonacoEditor from '@monaco-editor/react';
-import './App.css';
 import '@atlaskit/css-reset';
 import SplitPane, { Pane } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css'
@@ -18,14 +23,28 @@ import {
     RightPanel,
     TopNavigation,
 } from '@atlaskit/page-layout';
+import Button from '@atlaskit/button/standard-button';
+
+import {
+    AtlaskitThemeProvider,
+    gridSize,
+    ThemeModes,
+    typography,
+  } from '@atlaskit/theme';
 import {
     SlotLabel,
     SlotWrapper,
 } from './design-system/page-layout/examples/common';
-import { fontSize } from '@atlaskit/atlassian-navigation/dist/types/common/constants';
+import Toolbar from './Toolbar';
 
 
+const LIGHT = 'light';
+const DARK = 'dark';
 const BasicGrid = () => {
+    const [themeMode, setThemeMode] = useState<ThemeModes>(DARK);
+    const toggleMode = () => {
+      setThemeMode(themeMode === LIGHT ? DARK : LIGHT);
+    };
     const [code, setCode] = useState<string>('console.log("Hello, world!");');
     const [sizesV, setSizesV] = useState([
         100,
@@ -51,9 +70,7 @@ const BasicGrid = () => {
                     skipLinkTitle="Product Navigation"
                     isFixed={false}
                 >
-                    <SlotWrapper >
-                        <TopNavBar />
-                    </SlotWrapper>
+                    <TopNavBar />
                 </TopNavigation>
             }
             {
@@ -64,7 +81,7 @@ const BasicGrid = () => {
                         onChange={setSizesV}
                     >
                         <Pane minSize={50} maxSize='50%'>
-                            <div style={{ ...layoutCSS, background: '#ddd' }}>
+                            <div style={{ ...layoutCSS, background: 'color.background.accent.blue.subtlest' }}>
                                 {
 
                                 }
@@ -84,13 +101,15 @@ const BasicGrid = () => {
                                             <SlotWrapper
                                                 minHeight={600}
                                             >
-                                                <SlotLabel isSmall>Main Content</SlotLabel>
+                                               <Button testId="themeSwitch" onClick={toggleMode}>
+          Toggle theme
+        </Button>
                                                 <MonacoEditor
                                                     height="100%"
                                                     language="javascript"
                                                     theme="vs-dark"
                                                     value={code}
-                                                    options={{mouseWheelZoom:true}}
+                                                    options={{mouseWheelZoom:true, fontSize:16}}
                                                     onChange={(value) => setCode(value || '')}
                                                 />
                                             </SlotWrapper>

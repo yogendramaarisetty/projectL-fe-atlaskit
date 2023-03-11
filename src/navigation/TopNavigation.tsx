@@ -8,6 +8,7 @@ import {
   PrimaryDropdownButton,
   ProductHome,
 } from '@atlaskit/atlassian-navigation';
+import { THEME_MODES } from '@atlaskit/theme';
 
 const AtlassianProductHome = () => (
   <ProductHome icon={AtlassianIcon} logo={AtlassianLogo} />
@@ -21,6 +22,7 @@ const DefaultExample = () => (
       <PrimaryDropdownButton>Issues</PrimaryDropdownButton>,
       <PrimaryDropdownButton>Projects</PrimaryDropdownButton>,
       <PrimaryButton>Repositories</PrimaryButton>,
+      
     ]}
     renderProductHome={AtlassianProductHome}
   />
