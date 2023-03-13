@@ -18,9 +18,9 @@ const DefaultExample = () => (
   <AtlassianNavigation
     label="site"
     primaryItems={[
-      <PrimaryButton>Your work</PrimaryButton>,
-      <PrimaryDropdownButton>Issues</PrimaryDropdownButton>,
-      <PrimaryDropdownButton>Projects</PrimaryDropdownButton>,
+      <PrimaryButton>Problems</PrimaryButton>,
+      <PrimaryDropdownButton>Contact</PrimaryDropdownButton>,
+      <PrimaryDropdownButton>About Us</PrimaryDropdownButton>,
       <PrimaryButton>Repositories</PrimaryButton>,
       
     ]}
